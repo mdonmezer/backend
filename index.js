@@ -5,6 +5,38 @@ const port = 3000; // Sunucunuz için bir port seçin
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
+var fs = require('fs');
+
+fs.readFile('merhaba.txt', 'utf-8', function (err, data) {
+
+  if (err){ throw err;
+  }
+
+  console.log(data.toString());
+
+});
+
+// fs.writeFile("dosya.txt","muhammet dönmezer", function(err){
+//   if (err) {
+//     throw err;
+//   }
+//   console.log("Yazıldı");
+// })
+
+// fs.appendFile("dosya.txt","muhammet dönmezer", function(err){
+//   if (err) {
+//     throw err;
+//   }
+//   console.log("Eklendi");
+// })
+
+fs.unlink("dosya.txt", function(err) {
+  if (err) {
+    throw err;
+  }
+  console.log("Silindi");
+})
+
 
 
 let todos = [];
